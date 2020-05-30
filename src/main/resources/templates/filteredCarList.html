@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <title>Find by Production Year</title>
+</head>
+<body>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Back to main page</a></li>
+    </ol>
+</nav>
+<h1 align="center">Find by Production Year</h1>
+<form th:action="@{/get-cars-production-years}" th:object="${pageParam}" method="get">
+    <div class="container" align="center" style="margin-top: 40px">
+
+        <div class="card" style="width:600px">
+            <table align="center" border="0" cellpadding="4" cellspacing="1">
+                <tr>
+                    <td>Production year from</td>
+                    <td>
+                    <td><input type="number" name="yearFrom"  th:field="*{yearFrom}"></td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Production year to</td>
+                    <td>
+                    <td><input type="number" name="yearTo"  th:field="*{yearTo}"></td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center"><input class="btn btn-primary" type="submit" value="Find"/></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</form>
+
+
+</body>
+</html>

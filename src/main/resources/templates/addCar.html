@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <title>Add Car</title>
+</head>
+<body>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Back to main page</a></li>
+        <li class="breadcrumb-item"><a href="/car-list">Back to Car list</a></li>
+    </ol>
+</nav>
+<h1 align="center">Add Car</h1>
+<form th:action="@{/save-new-car}" th:object="${car}" method="post">
+    <div class="container" align="center" style="margin-top: 40px">
+
+        <div class="card" style="width:600px" >
+            <table align="center" border="0" cellpadding="4" cellspacing="1" style="margin-top: 20px">
+
+                <tr>
+                    <td><label>Mark</label></td>
+                    <td></td>
+                    <td><input type="text" name="mark" th:field="*{mark}"/></td>
+                    <td class="text-danger" th:if="${#fields.hasErrors('mark')}" th:errors="*{mark}"></td>
+                </tr>
+
+                <tr>
+                    <td><label>Model</label></td>
+                    <td></td>
+                    <td><input type="text" name="model" th:field="*{model}"/></td>
+                    <td class="text-danger" th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></td>
+                </tr>
+
+                <tr>
+                    <td><label>Color</label></td>
+                    <td></td>
+                    <td><input type="text" name="color" th:field="*{color}"/></td>
+                    <td class="text-danger" th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></td>
+                </tr>
+
+                <tr>
+                    <td><label>Production Year</label></td>
+                    <td>
+                    <td><input type="number" name="productionYear" th:field="*{productionYear}"/></td>
+                    <td class="text-danger" th:if="${#fields.hasErrors('productionYear')}" th:errors="*{productionYear}"></td>
+                    </td>
+                </tr>
+                <tr><td></td></tr>
+                <tr>
+                    <td colspan="4" align="center"  ><input class="btn btn-primary" type="submit" value="Add"/></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>
+</body>
+</html>
